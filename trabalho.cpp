@@ -132,6 +132,24 @@ int diagonal2(int coluna, int linha){
         return maiorVet2;
 }
 
+//5 feita
+void inverterColuna(int coluna, int linha){
+    int nColuna = 0;
+    int *vetor= new int [100];
+    cout<<"informe a coluna para inverter(0 a 99): ";
+    cin>> nColuna;
+
+    if(nColuna >= 0 && nColuna <= 99){
+       for(int i=0;i<100;i++){
+        vetor[i] = matriz[(linha-1)-i][nColuna];
+        cout<<vetor[i]<<endl;
+    }
+   
+    }if(nColuna < 0 || nColuna > 99){
+        cout<<"numero da coluna inexistente\n";
+        inverterColuna(coluna, linha);
+    }
+}
 
 int main(){
     int linha=100;
@@ -146,11 +164,12 @@ int main(){
     //maiorColuna(coluna,linha);
    // diagonal(coluna, linha);
     //diagonal2(coluna, linha);
-    if(diagonal(coluna, linha) > diagonal2(coluna, linha)){
+    /*if(diagonal(coluna, linha) > diagonal2(coluna, linha)){
         maior2 = diagonal2(coluna, linha);
     }else{
         maior2 = diagonal(coluna, linha);
     }
-    cout<<maior2;
+    cout<<maior2;*/
+    inverterColuna(coluna, linha);
     return 0;
 }

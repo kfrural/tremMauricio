@@ -179,6 +179,19 @@ void preencherNome(char **matrizNome, int linha, int coluna){
         
         
 }
+//Questão 8
+void repeticaoDaSoma(int soma,int linha,int coluna){
+        int repeticao = 0;
+        for(int i=0;i<linha;i++){
+            for(int j=0;j<coluna;j++){
+                if(matriz[i][j]==soma){
+                    repeticao++;
+                }
+            }
+        }
+        
+        cout<< repeticao;
+    }
 int main(){
     int linha=100;
     int coluna=100;
@@ -205,5 +218,18 @@ int main(){
         matrizNome[i] = new char[coluna];
     }
     preencherNome(matrizNome,linha,coluna);
+    
+    int C[5]={19,15,21,26,1};
+    int i=0;
+    int soma=0;
+    
+    while(i<5){
+        soma = soma + C[i];
+        i++;
+    }
+    cout<<soma<<endl;
+    
+    
+    repeticaoDaSoma(soma,linha,coluna);
     return 0;
 }

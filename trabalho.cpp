@@ -95,42 +95,39 @@ int menor = 999999;
 }
 
 //4 feita
-int diagonal(int coluna, int linha){
-    int *vetor= new int[100];
+
+void diagonal2(int coluna, int linha){
+    int *vetor= new int[200];
     int i=0;
-    int maiorVet1=0;
+    int maior=0;
+    int maior2 =0;
         for(int l=0;l<linha;l++){
             for(int c=0; c<coluna-1;c++){
-                if(l==c){
+                if((l+c)==99 || (l==c)){
                     vetor[i] = matriz[l][c];
-                   // cout<<vetor[i]<<"-"<<endl;  
-                    if(maiorVet1<vetor[i]){
-                        maiorVet1=vetor[i];
+                    cout<<vetor[i]<<"-";
+                    if(maior<vetor[i]){
+                        maior=vetor[i];
                     }
+                    i++; 
                 }
             }
         }
-        //cout<<maiorVet1<<endl;
-        return maiorVet1;
-}
-int diagonal2(int coluna, int linha){
-    int *vetor= new int[100];
-    int i=0;
-    int maiorVet2=0;
-        for(int l=0;l<linha;l++){
-            for(int c=0; c<coluna-1;c++){
-                if((l+c)==99){
-                    vetor[i] = matriz[l][c];
-                    //cout<<vetor[i]<<"-"<<endl;
-                    if(maiorVet2<vetor[i]){
-                        maiorVet2=vetor[i];
-                    } 
-                }
+        for(int i=0; i<200; i++){
+            if(vetor[i] == maior){
+                vetor[i] = 0;
             }
         }
-        //cout<<maiorVet2<<endl;
-        return maiorVet2;
+        for(int i=0; i<200; i++){
+            if(vetor[i]> maior2){
+                maior2=vetor[i];
+            }
+        }
+        cout<<maior2<<endl;
+        
 }
+
+
 
 //5 feita
 void inverterColuna(int coluna, int linha){
@@ -155,6 +152,7 @@ void inverterColuna(int coluna, int linha){
 void preencherNome(char **matrizNome, int linha, int coluna){
         
         int z[6]={22,9,3,20,15,18};
+        int z2[5]={11,1,18,12,1};
         
         for(int i=0;i<linha;i++){
             for(int j=0;j<coluna;j++){
@@ -168,6 +166,11 @@ void preencherNome(char **matrizNome, int linha, int coluna){
         matrizNome[22][24]='T';
         matrizNome[22][26]='O';
         matrizNome[22][28]='R';
+        matrizNome[11][1] ='K';
+        matrizNome[11][3] ='A';
+        matrizNome[11][5] ='R';
+        matrizNome[11][7] ='L';
+        matrizNome[11][9] ='A';
         
         for(int i=0;i<linha;i++){
             cout<<endl;
@@ -204,7 +207,7 @@ int main(){
     //menorColuna(coluna,linha);
     //maiorColuna(coluna,linha);
    // diagonal(coluna, linha);
-    //diagonal2(coluna, linha);
+    diagonal2(coluna, linha);
     /*if(diagonal(coluna, linha) > diagonal2(coluna, linha)){
         maior2 = diagonal2(coluna, linha);
     }else{
@@ -217,19 +220,25 @@ int main(){
     for(int i =0;i<linha;i++){
         matrizNome[i] = new char[coluna];
     }
-    preencherNome(matrizNome,linha,coluna);
+    //preencherNome(matrizNome,linha,coluna);
     
-    int C[5]={19,15,21,26,1};
+    int C[5]={19,15,21,26,1};//souza
+    int C2[8]={6,5,18,18,5,9,18,1};//ferreira
     int i=0;
+    int soma2 =0;
     int soma=0;
-    
+    for(int j = 0; j < 8; j++){
+        soma2 = soma2 + C2[j];
+    }
     while(i<5){
         soma = soma + C[i];
         i++;
     }
-    cout<<soma<<endl;
+    //cout<<soma<<"\n"<<soma2<<endl;
     
     
-    repeticaoDaSoma(soma,linha,coluna);
+    //repeticaoDaSoma(soma,linha,coluna);
+   // cout<<"\n\n";
+    //repeticaoDaSoma(soma2,linha,coluna);
     return 0;
 }
